@@ -3,25 +3,29 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useSession, signOut } from "@/lib/auth-client"
-import { LogIn, LogOut, User } from "lucide-react"
+import { LogIn, LogOut } from "lucide-react"
 
 export function NavBar() {
   const { data: session } = useSession()
 
   return (
-    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
-      <div className="container mx-auto px-4 max-w-6xl flex h-14 items-center justify-between">
-        <Link href="/dashboard" className="font-semibold text-lg tracking-tight">
+    <header className="border-b border-border bg-background sticky top-0 z-40 h-16">
+      <div className="container mx-auto px-4 max-w-6xl flex h-full items-center justify-between">
+        <Link href="/dashboard" className="font-semibold text-lg text-foreground">
           WorkSpace
         </Link>
 
         <div className="flex items-center gap-3">
           {session ? (
             <>
-              <span className="text-sm text-muted-foreground hidden sm:flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5" />
-                {session.user.name}
-              </span>
+              <div className="hidden sm:flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-muted border border-border flex items-center justify-center text-sm font-medium text-foreground shrink-0">
+                  {session.user.name?.charAt(0).toUpperCase() ?? "U"}
+                </div>
+                <span className="text-sm text-muted-foreground">
+                  {session.user.name}
+                </span>
+              </div>
               <Button
                 variant="outline"
                 size="sm"
@@ -35,21 +39,21 @@ export function NavBar() {
                   })
                 }
               >
-                <LogOut className="w-4 h-4 mr-1.5" />
+                <LogOut className="w-4 h-4 mr-2" />
                 Salir
               </Button>
             </>
           ) : (
             <>
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
                 render={<Link href="/sign-in" />}
               >
                 <LogIn className="w-4 h-4 mr-1.5" />
                 Iniciar sesión
               </Button>
-              <Button size="sm" render={<Link href="/sign-up" />}>
+              <Button variant="outline" size="sm" render={<Link href="/sign-up" />}>
                 Registrarse
               </Button>
             </>

@@ -1,5 +1,6 @@
 import { RoomList } from "@/components/rooms/RoomList"
 import { NavBar } from "@/components/NavBar"
+import { DashboardHeader } from "@/components/DashboardHeader"
 
 export const metadata = {
   title: "WorkSpace — Dashboard",
@@ -10,15 +11,8 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">
-            Salas disponibles
-          </h1>
-          <p className="text-muted-foreground mt-1">
-            Selecciona una sala y elige el horario para tu reunión.
-          </p>
-        </div>
+      <main className="container mx-auto px-4 py-8 max-w-6xl bg-muted/30">
+        <DashboardHeader />
         <RoomList />
       </main>
     </div>

@@ -16,7 +16,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="es" className={`dark ${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-background antialiased">
         <QueryProvider>{children}</QueryProvider>
         <Toaster richColors position="top-right" />
