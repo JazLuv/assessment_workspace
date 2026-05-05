@@ -13,7 +13,7 @@ import { toast } from "sonner"
 
 const FormSchema = z
   .object({
-    title: z.string().min(3, "El título debe tener al menos 3 caracteres").max(100),
+    title: z.string().min(3, "El titulo debe tener al menos 3 caracteres").max(100),
     date: z.string().min(1, "La fecha es requerida"),
     startTime: z.string().min(1, "La hora de inicio es requerida"),
     endTime: z.string().min(1, "La hora de fin es requerida"),
@@ -80,10 +80,10 @@ export function ReservationForm({ room, onSuccess }: ReservationFormProps) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {/* Campo: Título */}
       <div className="space-y-1.5">
-        <Label htmlFor="title">Título de la reunión</Label>
+        <Label htmlFor="title">Título de la reunion</Label>
         <Input
           id="title"
-          placeholder="Ej: Revisión de proyecto"
+          placeholder="Ej: Revision de proyecto"
           {...register("title")}
         />
         {errors.title && (
@@ -104,14 +104,24 @@ export function ReservationForm({ room, onSuccess }: ReservationFormProps) {
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-1.5">
           <Label htmlFor="startTime">Hora de inicio</Label>
-          <Input id="startTime" type="time" {...register("startTime")} />
+          <Input
+            id="startTime"
+            type="time"
+            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+            {...register("startTime")}
+          />
           {errors.startTime && (
             <p className="text-xs text-destructive">{errors.startTime.message}</p>
           )}
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="endTime">Hora de fin</Label>
-          <Input id="endTime" type="time" {...register("endTime")} />
+          <Input
+            id="endTime"
+            type="time"
+            onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+            {...register("endTime")}
+          />
           {errors.endTime && (
             <p className="text-xs text-destructive">{errors.endTime.message}</p>
           )}
@@ -123,7 +133,7 @@ export function ReservationForm({ room, onSuccess }: ReservationFormProps) {
         <div className="flex items-start gap-2 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-destructive">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
           <p className="text-sm font-medium">
-            Esta sala ya está reservada en ese horario. Por favor elige otro.
+            Esta sala ya esta reservada en ese horario. Por favor elige otro.
           </p>
         </div>
       )}
