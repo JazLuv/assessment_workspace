@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   try {
     body = await request.json()
   } catch {
-    return NextResponse.json({ error: "Body inválido" }, { status: 400 })
+    return NextResponse.json({ error: "Body invalido" }, { status: 400 })
   }
 
   // validar con Zod
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
 
   if (conflict) {
     return NextResponse.json(
-      { error: "La sala ya está reservada en ese horario" },
+      { error: "La sala ya esta reservada en ese horario" },
       { status: 409 }
     )
   }
