@@ -11,7 +11,7 @@ export function NavBar() {
   return (
     <header className="border-b border-border bg-background sticky top-0 z-40 h-16">
       <div className="container mx-auto px-4 max-w-6xl flex h-full items-center justify-between">
-        <Link href="/dashboard" className="font-semibold text-lg text-foreground">
+        <Link href="/dashboard" className="font-semibold text-2xl text-foreground">
           WorkSpace
         </Link>
 
