@@ -1,6 +1,3 @@
-Aquí está el README completo:
-
-```markdown
 # WorkSpace
 
 Aplicación minimalista para reservar salas de juntas en una oficina. Construida con Next.js 15, Prisma, TanStack Query, Better Auth y Shadcn/UI.
@@ -130,4 +127,3 @@ Abre [http://localhost:3000](http://localhost:3000)
 | `npx prisma db seed` | Poblar con datos iniciales |
 | `npm run dev` | Servidor de desarrollo |
 | `npm run build` | Compilar para producción |
-```
