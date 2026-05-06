@@ -38,7 +38,7 @@ interface ReservationFormProps {
 
 export function ReservationForm({ room, onSuccess }: ReservationFormProps) {
   const mutation = useCreateReservation()
-  const today = new Date().toISOString().split("T")[0]
+  const today = new Date().toLocaleDateString("en-CA")
 
   const {
     register,
