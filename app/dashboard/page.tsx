@@ -1,6 +1,7 @@
 import { RoomList } from "@/components/rooms/RoomList"
 import { NavBar } from "@/components/NavBar"
 import { DashboardHeader } from "@/components/DashboardHeader"
+import { ReservationCalendar } from "@/components/calendar/ReservationCalendar"
 
 export const metadata = {
   title: "WorkSpace — Dashboard",
@@ -14,6 +15,9 @@ export default function DashboardPage() {
       <main className="container mx-auto px-4 py-8 max-w-6xl bg-muted/30 mt-6">
         <DashboardHeader />
         <RoomList />
+        <div className="mt-8">
+          <ReservationCalendar />
+        </div>
       </main>
     </div>
   )

@@ -5,6 +5,7 @@ export const RoomReservationSchema = z.object({
   title: z.string(),
   startTime: z.string(),
   endTime: z.string(),
+  user: z.object({ name: z.string() }),
 })
 
 export const RoomSchema = z.object({

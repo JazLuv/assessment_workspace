@@ -11,7 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { Home, Users2, Clock, CalendarPlus } from "lucide-react"
+import { Home, Users2, Clock, CalendarPlus, User } from "lucide-react"
 import type { Room } from "@/lib/validations/rooms"
 import { ReservationModal } from "@/components/reservations/ReservationModal"
 
@@ -64,13 +64,19 @@ export function RoomCard({ room }: { room: Room }) {
               {todayReservations.map((r) => (
                 <div
                   key={r.id}
-                  className="flex items-center gap-2 text-sm bg-muted rounded-md px-2 py-1.5"
+                  className="bg-muted rounded-md px-2 py-1.5"
                 >
-                  <Clock className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground truncate">{r.title}</span>
-                  <span className="text-xs text-muted-foreground ml-auto shrink-0">
-                    {formatTime(r.startTime)}–{formatTime(r.endTime)}
-                  </span>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                    <span className="font-medium text-foreground truncate">{r.title}</span>
+                    <span className="text-xs text-muted-foreground ml-auto shrink-0">
+                      {formatTime(r.startTime)}–{formatTime(r.endTime)}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
+                    <User className="w-3 h-3" />
+                    {r.user.name}
+                  </p>
                 </div>
               ))}
             </div>

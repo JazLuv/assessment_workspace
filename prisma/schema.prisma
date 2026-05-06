@@ -30,18 +30,20 @@ model Reservation {
   endTime   DateTime
   createdAt DateTime @default(now())
   room      Room     @relation(fields: [roomId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id            String    @id
+  id            String        @id
   name          String
-  email         String    @unique
+  email         String        @unique
   emailVerified Boolean
   image         String?
   createdAt     DateTime
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
+  reservations  Reservation[]
 }
 
 model Session {

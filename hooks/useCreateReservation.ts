@@ -29,6 +29,7 @@ export function useCreateReservation() {
     mutationFn: createReservation,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["rooms"] })
+      queryClient.invalidateQueries({ queryKey: ["calendar-reservations"] })
     },
   })
 }

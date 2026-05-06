@@ -14,6 +14,9 @@ export async function GET() {
             title: true,
             startTime: true,
             endTime: true,
+            user: {
+              select: { name: true },
+            },
           },
           orderBy: { startTime: "asc" },
         },
