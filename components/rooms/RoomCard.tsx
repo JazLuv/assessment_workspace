@@ -37,7 +37,7 @@ export function RoomCard({ room }: { room: Room }) {
 
   return (
     <>
-      <Card className="flex flex-col h-full">
+      <Card className="flex flex-col h-full transition-all duration-200 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_8px_32px_rgba(0,0,0,0.4),0_0_30px_rgba(255,255,255,0.04)]">
         <CardHeader>
           <div className="flex items-start justify-between gap-2">
             <CardTitle className="text-base font-semibold text-foreground flex items-center gap-2">
