@@ -12,47 +12,86 @@ Aplicación minimalista para reservar salas de juntas en una oficina. Construida
 - **UI:** Shadcn/UI + Tailwind CSS
 - **Validación:** Zod
 
+## Funcionalidades
+
+- Dashboard con lista de salas disponibles y sus reservas del día
+- Reserva de salas con selección de fecha y horario
+- Validación de solapamiento de horarios en el servidor
+- Calendario mensual integrado para ver reservas pasadas y futuras
+- Modal de detalle por día con reservas agrupadas por sala
+- Nombre del autor visible en cada reserva
+- Autenticación con correo y contraseña
+- Loading states con skeletons y manejo de errores
+
 ## Estructura del proyecto
 
 ```
 assessment_workspace/
 ├── app/
 │   ├── api/
-│   │   ├── auth/[...all]/route.ts   # Better Auth handler
-│   │   ├── rooms/route.ts           # GET /api/rooms
-│   │   └── reservations/route.ts   # POST /api/reservations
-│   ├── dashboard/page.tsx           # Vista principal
-│   ├── sign-in/page.tsx             # Inicio de sesión
-│   ├── sign-up/page.tsx             # Registro
+│   │   ├── auth/[...all]/route.ts              # Better Auth handler
+│   │   ├── reservations/
+│   │   │   ├── calendar/route.ts               # GET /api/reservations/calendar
+│   │   │   └── route.ts                        # POST /api/reservations
+│   │   └── rooms/route.ts                      # GET /api/rooms
+│   ├── dashboard/page.tsx                      # Vista principal
+│   ├── sign-in/page.tsx                        # Inicio de sesión
+│   ├── sign-up/page.tsx                        # Registro
+│   ├── globals.css
 │   ├── layout.tsx
-│   └── page.tsx                     # Redirect → /dashboard
+│   └── page.tsx                                # Redirect → /dashboard
 ├── components/
-│   ├── ui/                          # Componentes Shadcn
+│   ├── ui/                                     # Componentes Shadcn
+│   │   ├── badge.tsx
+│   │   ├── button.tsx
+│   │   ├── calendar.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── separator.tsx
+│   │   ├── skeleton.tsx
+│   │   └── sonner.tsx
+│   ├── calendar/
+│   │   ├── DayReservationsModal.tsx            # Modal de detalle por día
+│   │   └── ReservationCalendar.tsx             # Calendario mensual de reservas
+│   ├── reservations/
+│   │   ├── ReservationForm.tsx
+│   │   └── ReservationModal.tsx
 │   ├── rooms/
 │   │   ├── RoomCard.tsx
 │   │   └── RoomList.tsx
-│   ├── reservations/
-│   │   ├── ReservationModal.tsx
-│   │   └── ReservationForm.tsx
 │   ├── DashboardHeader.tsx
 │   └── NavBar.tsx
 ├── hooks/
-│   ├── useRooms.ts                  # useQuery para salas
-│   └── useCreateReservation.ts     # useMutation para reservas
+│   ├── useCalendarReservations.ts              # useQuery para calendario
+│   ├── useCreateReservation.ts                 # useMutation para reservas
+│   └── useRooms.ts                             # useQuery para salas
 ├── lib/
-│   ├── prisma.ts                    # Cliente Prisma singleton
-│   ├── auth.ts                      # Configuración Better Auth (servidor)
-│   ├── auth-client.ts               # Configuración Better Auth (cliente)
-│   └── validations/
-│       ├── rooms.ts                 # Zod schemas para rooms
-│       └── reservations.ts         # Zod schemas para reservations
-├── providers/
-│   └── QueryProvider.tsx            # TanStack Query Provider
+│   ├── validations/
+│   │   ├── reservations.ts                     # Zod schemas para reservations
+│   │   └── rooms.ts                            # Zod schemas para rooms
+│   ├── auth.ts                                 # Configuración Better Auth (servidor)
+│   ├── auth-client.ts                          # Configuración Better Auth (cliente)
+│   ├── prisma.ts                               # Cliente Prisma singleton
+│   └── utils.ts
 ├── prisma/
+│   ├── migrations/
+│   │   ├── 20260505041958_init/
+│   │   ├── 20260506053538_add_user_reservation_relation/
+│   │   └── migration_lock.toml
 │   ├── schema.prisma
-│   └── seed.ts                      # Seed con 3 salas
-├── docker-compose.yml
+│   └── seed.ts                                 # Seed con 3 salas
+├── providers/
+│   └── QueryProvider.tsx                       # TanStack Query Provider
 ├── .env.example
+├── .gitignore
+├── components.json
+├── docker-compose.yml
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── prisma.config.ts
 └── README.md
 ```
 
