@@ -51,7 +51,7 @@ export function NavBar() {
                 render={<Link href="/sign-in" />}
               >
                 <LogIn className="w-4 h-4 mr-1.5" />
-                Iniciar sesión
+                Iniciar sesion
               </Button>
               <Button variant="outline" size="sm" render={<Link href="/sign-up" />}>
                 Registrarse

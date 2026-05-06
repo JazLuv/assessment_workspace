@@ -38,7 +38,7 @@ export default function SignInPage() {
           router.refresh()
         },
         onError: (ctx) => {
-          setError(ctx.error.message ?? "Error al iniciar sesión")
+          setError(ctx.error.message ?? "Error al iniciar sesion")
           setLoading(false)
         },
       },
@@ -50,12 +50,12 @@ export default function SignInPage() {
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">WorkSpace</CardTitle>
-          <CardDescription>Inicia sesión para reservar salas</CardDescription>
+          <CardDescription>Inicia sesion para reservar salas</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-1.5">
-              <Label htmlFor="email">Correo electrónico</Label>
+              <Label htmlFor="email">Correo electronico</Label>
               <Input
                 id="email"
                 type="email"
@@ -84,7 +84,7 @@ export default function SignInPage() {
               {loading ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
               ) : (
-                "Iniciar sesión"
+                "Iniciar sesion"
               )}
             </Button>
             <p className="text-sm text-muted-foreground text-center">
@@ -93,7 +93,7 @@ export default function SignInPage() {
                 href="/sign-up"
                 className="text-primary hover:underline font-medium"
               >
-                Regístrate
+                Registrate
               </Link>
             </p>
           </CardFooter>

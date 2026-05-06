@@ -69,7 +69,7 @@ export default function SignUpPage() {
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="email">Correo electrónico</Label>
+              <Label htmlFor="email">Correo electronico</Label>
               <Input
                 id="email"
                 type="email"
@@ -109,7 +109,7 @@ export default function SignUpPage() {
                 href="/sign-in"
                 className="text-primary hover:underline font-medium"
               >
-                Inicia sesión
+                Inicia sesion
               </Link>
             </p>
           </CardFooter>
